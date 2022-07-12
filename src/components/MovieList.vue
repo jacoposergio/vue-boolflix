@@ -1,8 +1,8 @@
 <template>
   <div class="movie-list">
     <ul>
-        <li>{{info.title}}</li>
-        <li>Titolo originale</li>
+        <li>{{info.genres}}</li>
+        <li>{{info.name}}</li>
         <li>lingua</li>
         <li>voto</li>
     </ul>
@@ -12,7 +12,9 @@
 <script>
 export default {
     name: 'MovieList',
-    props: ['info']
+    props:{
+        info: Object,
+    }
 }
 
 </script>

@@ -1,6 +1,6 @@
 <template>
     <main>
-       <MovieList/>
+       <MovieList v-for="movie in movieCatalog" :key="movie.id" :info="movie"/>
     </main>
 </template>
 
@@ -11,19 +11,22 @@ import axios from "axios"
 export default {
       name: 'MainComponent',
       components: {
-                MovieList
+                MovieList,
                    },
 
                 data() {
                         return{
-                            MovieUrl: 'https://api.themoviedb.org/3/movie/433?api_key=ed5659a4d373a5fd2789a5e8e6b64fda',
+                            MovieUrl: 'https://api.themoviedb.org/3/movie/550?api_key=ed5659a4d373a5fd2789a5e8e6b64fda',
                             movieCatalog: [],
                         }
                 },
+         created(){
+             this.getMovies();
+              },
         methods:{
         getMovies(){
             axios.get(this.MovieUrl).then((result) => {
-                this.movieCatalog = result.data.belongs_to_collection;
+                this.movieCatalog = result.data;
             })
             .catch((err) => {
                 console.log("Error", err);
