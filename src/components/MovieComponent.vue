@@ -2,21 +2,21 @@
     <li>
         <div>Titolo:{{item.title}}</div>
         <div>Titolo originale: {{item.original_title}}</div>
-         <div >
-          <img 
-            v-if="`https://countryflagsapi.com/png/${item.original_language}`.loaded === false"
-            :src="`https://countryflagsapi.com/png/${item.original_language}`" 
-            alt="language"
-            @load="`https://countryflagsapi.com/png/${item.original_language}`.loaded = true"
-           >
-            <img 
-            v-else
-            src="https://countryflagsapi.com/png/br" 
+         <div>
+          <img
+            v-if="langArray.includes(item.original_language)"
+            :src="require(`../assets/flags/${item.original_language}.png`)" 
             alt="language"
            >
+           <div class="not-found" v-else>
+             <img 
+                src="../assets/flags/notfound.png"
+                alt="language"
+              >
+              <div class="lang-notfound">{{item.original_language}}</div>
+           </div>
         </div>
-        <!-- v-if="item.original_language === 'it'">Lingua: {{item.original_language}}</div> -->
-        <div>Voto: {{item.vote_average}}</div>
+        <div>Voto: {{item.vote_average}} </div>
     </li>
 </template>
 
@@ -26,16 +26,15 @@ export default {
     name: 'MovieComponent',
     data: function () {
       return{
-         isLoaded: false
+        langArray : ["it", "en", "ja", "es", "de", "pt"]
+        
       };
     },
     props:{
        "item": Object
     }, 
      methods: {
-          onImgLoad () {
-          this.isLoaded = true
-        }
+         
      },
 }
 
@@ -46,5 +45,16 @@ export default {
 li{
   margin-bottom: 1rem;
 }
+
+.not-found{
+  position: relative;
+    .lang-notfound{
+         position: absolute;
+         right: 0;
+         left: 0;
+         top: 25px;
+}
+}
+
 
 </style>
