@@ -1,43 +1,37 @@
 <template>
     <main>
-       <MovieList v-for="movie in movieCatalog" :key="movie.id" :info="movie"/>
+        <ul class="cards">
+           <MovieComponent 
+             v-for="card in movieCards"
+             :key="card.id"
+             :item="card"
+            />
+       </ul>
     </main>
 </template>
 
 <script>
-import MovieList from './MovieList.vue'
-import axios from "axios"
+import MovieComponent from './MovieComponent.vue'
 
 export default {
-      name: 'MainComponent',
+      name: "MainComponent",
+      props: {
+        "movieCards": Array,
+        "searching" : Boolean
+      },
       components: {
-                MovieList,
-                   },
-
-                data() {
-                        return{
-                            MovieUrl: 'https://api.themoviedb.org/3/movie/550?api_key=ed5659a4d373a5fd2789a5e8e6b64fda',
-                            movieCatalog: [],
-                        }
-                },
-         created(){
-             this.getMovies();
-              },
-        methods:{
-        getMovies(){
-            axios.get(this.MovieUrl).then((result) => {
-                this.movieCatalog = result.data;
-            })
-            .catch((err) => {
-                console.log("Error", err);
-            });
-        } }     
-  
-      } 
+          MovieComponent,
+       }
+   } 
 </script>
 
 <style lang="scss" scope>
     main{
         margin-top: 200px;
+
+        ul {
+         list-style-type: none;
+         margin-bottom: 1rem;
+           }
     }
 </style>

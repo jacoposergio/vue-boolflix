@@ -1,18 +1,35 @@
 <template>
   <header>
      <div class="logo">logo</div>
-     <SearchBarComponent/>
+       <div class="search-bar">
+        <input
+                class="form-control"
+                type="text"
+                placeholder="Search a movie"
+                v-model="inputText"
+                @keyup.enter="$emit('performSearch',inputText)"
+          >
+         <div>
+            <button 
+                @click="$emit('performSearch',inputText)"
+                type="submit"
+                class="btn btn-success"
+                >
+                Search
+            </button>
+         </div>          
+  </div>
   </header>
 </template>
 
 <script>
-import SearchBarComponent from './SearchBarComponent.vue'
-
 export default {
-       name: 'HeaderComponent',
-       components: {
-                SearchBarComponent
-                   }
+       name: "HeaderComponent",
+       data: function () {
+        return {
+            inputText: ''
+        }
+    }
 }
 </script>
 
@@ -22,6 +39,14 @@ header{
     background-color: lightcyan;
     display: flex;
     justify-content: space-around;
+
+    .search-bar{
+     display: flex;
+
+     button{
+    margin-left: 1rem;
+     }
+   }
 }
 
 </style>
