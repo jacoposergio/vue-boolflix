@@ -16,6 +16,16 @@
               <div class="lang-notfound">{{item.original_language}}</div>
            </div>
         </div>
+        <div class="movie-poster">
+          <img 
+          v-if="item.poster_path !== null"
+            :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" 
+            alt="movie poster"
+          >
+          <div v-else>
+            <img src="../assets/img/notaviable.jpg" alt="">
+          </div>
+        </div>
         <div>Voto: {{item.vote_average}} </div>
     </li>
 </template>
@@ -34,6 +44,7 @@ export default {
        "item": Object
     }, 
      methods: {
+      
          
      },
 }
