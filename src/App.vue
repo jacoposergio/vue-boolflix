@@ -2,7 +2,7 @@
   <div id="app">
     <HeaderComponent @performSearch="search"/>
     <MainComponent
-         :movieCards="movies"
+         :movieCards="AllResults"
          :searching="searchStarted"
     />
   </div>
@@ -35,6 +35,17 @@ export default {
         axios.get(this.apiUrl + 'movie', apiParams)
         .then((response) => {
             this.movies = response.data.results;
+            this.AllResults = [...this.series, ...this.movies]
+        })
+        .catch((err) => {
+            console.log("Error", err);
+        });
+     },
+
+     getSeries(apiParams){
+        axios.get(this.apiUrl + 'tv', apiParams)
+        .then((response) => {
+            this.series = response.data.results;
         })
         .catch((err) => {
             console.log("Error", err);
@@ -50,6 +61,7 @@ export default {
         }
       };
       this.getMovies(paramsObj);
+      this.getSeries(paramsObj);
     } 
   }    
 }

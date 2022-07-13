@@ -1,7 +1,7 @@
 <template>
     <li>
-        <div>Titolo:{{item.title}}</div>
-        <div>Titolo originale: {{item.original_title}}</div>
+        <div>Titolo: {{item.title}}{{item.name}}</div>
+        <div>Titolo originale: {{item.original_title}}{{item.original_name}}</div>
          <div>
           <img
             v-if="langArray.includes(item.original_language)"
