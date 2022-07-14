@@ -25,13 +25,16 @@ export default {
    } 
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
+@import'@/assets/scss/Common.scss';
+
     main{
-        margin-top: 200px;
+         height: 100%;
 
         ul {
          list-style-type: none;
-         margin-bottom: 1rem;
+         display: flex;
            }
     }
+
 </style>

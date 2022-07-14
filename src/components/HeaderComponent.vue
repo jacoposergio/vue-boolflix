@@ -1,7 +1,9 @@
 <template>
   <header>
-     <div class="logo">logo</div>
-       <div class="search-bar">
+     <div class="logo">
+      <img src="../assets/img/netflix.png" alt="">
+     </div>
+    <div class="search-bar">
         <input
                 class="form-control"
                 type="text"
@@ -18,7 +20,7 @@
                 Search
             </button>
          </div>          
-  </div>
+     </div>
   </header>
 </template>
 
@@ -34,17 +36,36 @@ export default {
 </script>
 
 <style lang="scss" scoped> 
+@import'@/assets/scss/Common.scss';
+
 
 header{
-    background-color: lightcyan;
+    background-color:#232627;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 10px 50px;
+    align-items: center;
+    .logo{
+     
+     img{
+      width: 120px;
+     }
+      
+    }
 
     .search-bar{
      display: flex;
+      align-items: center;
+
+
+     input{
+       border-radius: 4px;
+       height: 25px;
+     }
 
      button{
-    margin-left: 1rem;
+     margin-left: 1rem;
+     padding:0 8px;
      }
    }
 }

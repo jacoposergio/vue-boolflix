@@ -14,6 +14,7 @@ import HeaderComponent from './components/HeaderComponent.vue'
 import MainComponent from './components/MainComponent.vue'
 
 
+
 export default {
   name: 'App',
   components: {
@@ -55,9 +56,9 @@ export default {
     search: function (searchText) {
       const paramsObj = {
         params: {
-          api_key: this.apiKey,
-          query: searchText,
-          languages: 'it-IT'
+            api_key: this.apiKey,
+            query: searchText,
+            languages: 'it-IT'
         }
       };
       this.getMovies(paramsObj);
@@ -68,12 +69,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import'@/assets/scss/Common.scss';
+ 
+
 </style>
