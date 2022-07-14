@@ -30,6 +30,7 @@ export default {
 
     main{
          height: 100%;
+         padding-top: 100px;
 
         ul {
          list-style-type: none;

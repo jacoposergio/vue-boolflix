@@ -66,6 +66,11 @@ li{
   padding: 15px;
 
 
+  .card:hover .movie-poster{
+  z-index: -1;
+  opacity: 0.3;
+  }
+
   .card{
     height: 513px;
     width: 342px;
@@ -74,20 +79,19 @@ li{
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
+    
 
         .movie-poster{
           position: absolute;
           right: 0;
           top: 0;
           z-index: 0;
-          cursor: pointer;
+         
         }
 
-        .movie-poster:hover{
-          z-index: -1;
-          opacity: 0.3;
           
-        }
+        
           .black-bg{
             height: 513px;
             width: 342px;

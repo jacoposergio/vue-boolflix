@@ -40,11 +40,16 @@ export default {
 
 
 header{
+    position: fixed;
+    left: 0;
     background-color:#232627;
     display: flex;
     justify-content: space-between;
     padding: 10px 50px;
     align-items: center;
+    z-index: 10;
+    width: 100%;
+
     .logo{
      
      img{
