@@ -15,18 +15,14 @@
           <div>Titolo: {{item.title? item.title : item.name}}</div>
           <div>Titolo originale: {{item.original_title? item.original_title : item.original_name}}</div>
           <div class="language">
-            <span>Lingua:  </span>
+            <span>Lingua:</span>
             <img
               v-if="langArray.includes(item.original_language)"
               :src="require(`../assets/flags/${item.original_language}.png`)" 
               :alt="item.original_language"
             >
             <div class="not-found" v-else>
-              <img 
-                  src="../assets/flags/notfound.png"
-                  alt="language"
-                >
-                <div class="lang-notfound">{{item.original_language}}</div>
+                <div>{{item.original_language}}</div>
             </div>
           </div>
           <div class="rating">
@@ -98,7 +94,7 @@ li{
             position: absolute;
             right: 0;
             top: 0;
-            z-index: -1;
+            z-index: -3;
             background-color: black;
             opacity: 40%;
         }
@@ -106,6 +102,7 @@ li{
         .language{
           display: flex;
           align-items: center;
+          z-index: -1;
 
           span{
             margin-right: 10px;
@@ -119,12 +116,6 @@ li{
 
         .not-found{
             position: relative;
-              .lang-notfound{
-                  position: absolute;
-                  right: 0;
-                  left: 0;
-                  top: 25px;
-            }
 
   }
         .rating{
